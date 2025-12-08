@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ocrservice.daemon</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/share/dotnet/dotnet</string>
+        <string>/Users/YOUR_USERNAME/HelperProjects/OCR/OcrService/bin/Release/net9.0/OcrService.dll</string>
+        <string>--urls</string>
+        <string>http://0.0.0.0:5196</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/YOUR_USERNAME/HelperProjects/OCR/OcrService/bin/Release/net9.0</string>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/var/log/ocrservice/output.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/var/log/ocrservice/error.log</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>DYLD_LIBRARY_PATH</key>
+        <string>/opt/homebrew/lib:/opt/homebrew/opt/tesseract/lib:/opt/homebrew/opt/leptonica/lib</string>
+        <key>DOTNET_ENVIRONMENT</key>
+        <string>Production</string>
+        <key>ASPNETCORE_ENVIRONMENT</key>
+        <string>Production</string>
+    </dict>
+    
+    <key>UserName</key>
+    <string>YOUR_USERNAME</string>
+    
+    <key>GroupName</key>
+    <string>staff</string>
+    
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    
+</dict>
+</plist>

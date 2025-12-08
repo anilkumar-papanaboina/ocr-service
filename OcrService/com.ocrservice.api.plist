@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ocrservice.api</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/share/dotnet/dotnet</string>
+        <string>run</string>
+        <string>--project</string>
+        <string>/Users/YOUR_USERNAME/HelperProjects/OCR/OcrService/OcrService.csproj</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/YOUR_USERNAME/HelperProjects/OCR/OcrService</string>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/OcrService/output.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/OcrService/error.log</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>DYLD_LIBRARY_PATH</key>
+        <string>/opt/homebrew/lib:/opt/homebrew/opt/tesseract/lib:/opt/homebrew/opt/leptonica/lib</string>
+        <key>DOTNET_ENVIRONMENT</key>
+        <string>Production</string>
+    </dict>
+    
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    
+</dict>
+</plist>

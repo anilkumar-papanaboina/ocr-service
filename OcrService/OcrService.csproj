@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+    <PackageReference Include="Tesseract" Version="5.2.0" />
+  </ItemGroup>
+
+  <Target Name="CopyNativeLibraries" AfterTargets="Build">
+    <Exec Condition="$([MSBuild]::IsOSPlatform('OSX'))" Command="mkdir -p $(OutDir)x64" />
+    <Exec Condition="$([MSBuild]::IsOSPlatform('OSX'))" Command="cp -f /opt/homebrew/opt/tesseract/lib/libtesseract.5.dylib $(OutDir)x64/libtesseract50.dylib" />
+    <Exec Condition="$([MSBuild]::IsOSPlatform('OSX'))" Command="cp -f /opt/homebrew/opt/leptonica/lib/libleptonica.6.dylib $(OutDir)x64/libleptonica-1.82.0.dylib" />
+  </Target>
+
+</Project>
