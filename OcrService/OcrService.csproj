@@ -18,4 +18,11 @@
     <Exec Condition="$([MSBuild]::IsOSPlatform('OSX'))" Command="cp -f /opt/homebrew/opt/leptonica/lib/libleptonica.6.dylib $(OutDir)x64/libleptonica-1.82.0.dylib" />
   </Target>
 
+  <ItemGroup>
+  <!-- Include tessdata -->
+    <Content Include="ocrtessdata\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

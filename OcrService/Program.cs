@@ -14,7 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Register TesseractEngine pool for parallel processing
-var tessdataPath = "/opt/homebrew/Cellar/tesseract/5.5.1_1/share/tessdata";
+string tessdataPath = Path.Combine(
+    AppContext.BaseDirectory,
+    "ocrtessdata"
+);
+//var tessdataPath = "/Users/i41073/HelperProjects/OCR/OcrService/ocrtessdata";
 builder.Services.AddSingleton<TesseractEnginePool>(sp => new TesseractEnginePool(tessdataPath, poolSize: 4));
 
 var app = builder.Build();
